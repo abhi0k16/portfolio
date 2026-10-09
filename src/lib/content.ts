@@ -1,3 +1,5 @@
+const base = process.env.NEXT_PUBLIC_BASE_PATH ?? "";
+
 export const profile = {
   name: "Abhinav Kumar",
   roleLabel: "Software Engineer",
@@ -8,7 +10,8 @@ export const profile = {
   linkedin: "https://www.linkedin.com/in/abhi160k",
   leetcode: "https://leetcode.com/u/user0136O/",
   gfg: "https://www.geeksforgeeks.org/profile/kumarabhinav9163?tab=activity",
-  resume: "/resume.pdf",
+  photo: `${base}/abhinav.jpg`,
+  resume: `${base}/resume.pdf`,
   headline: "GenAI pipelines, backend services, and cloud infrastructure.",
   summary:
     "Specialist at PwC, building retrieval-augmented generation pipelines, the backend services around them, and the React, Angular, and TypeScript interfaces in front. Environments go out through Kubernetes and Terraform. Before PwC, I interned at IBM Phemesoft on a large AWS data pipeline.",

@@ -62,7 +62,7 @@ export function Hero() {
           <figure className="overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_30px_80px_-40px_rgba(0,0,0,0.8)]">
             <div className="relative aspect-[5/4]">
               <Image
-                src="/abhinav.jpg"
+                src={profile.photo}
                 alt="Portrait of Abhinav Kumar"
                 fill
                 priority
