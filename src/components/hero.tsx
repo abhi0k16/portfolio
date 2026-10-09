@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ArrowUpRight, Download } from "lucide-react";
+import Image from "next/image";
 import { profile } from "@/lib/content";
 
 const rows = [
@@ -14,7 +15,7 @@ const rows = [
 export function Hero() {
   return (
     <section id="top" className="desk relative overflow-hidden pt-28 pb-20 sm:pt-36 sm:pb-28">
-      <div className="mx-auto grid max-w-6xl items-end gap-14 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)]">
+      <div className="mx-auto grid max-w-6xl items-center gap-14 px-5 sm:px-8 lg:grid-cols-[minmax(0,1.15fr)_minmax(280px,0.85fr)]">
         <motion.div
           initial={{ opacity: 0, y: 12 }}
           animate={{ opacity: 1, y: 0 }}
@@ -56,25 +57,38 @@ export function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.1, ease: [0.22, 1, 0.36, 1] }}
-          className="rounded-2xl border border-line bg-surface/80 p-5 shadow-[0_30px_80px_-40px_rgba(0,0,0,0.8)] backdrop-blur-sm"
-          aria-label="Current engineering focus"
+          className="space-y-4"
         >
-          <div className="flex items-center justify-between">
-            <p className="font-mono text-[11px] tracking-[0.18em] text-muted uppercase">Current focus</p>
-            <span className="size-1.5 rounded-full bg-accent" />
+          <figure className="overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_30px_80px_-40px_rgba(0,0,0,0.8)]">
+            <div className="relative aspect-[5/4]">
+              <Image
+                src="/abhinav.jpg"
+                alt="Portrait of Abhinav Kumar"
+                fill
+                priority
+                sizes="(min-width: 1024px) 440px, 100vw"
+                className="object-cover object-[center_20%]"
+              />
+            </div>
+            <figcaption className="flex items-center justify-between gap-3 px-4 py-3">
+              <span className="text-sm text-foreground">{profile.name}</span>
+              <span className="font-mono text-[11px] tracking-wider text-muted uppercase">PwC · Specialist</span>
+            </figcaption>
+          </figure>
+          <div className="rounded-2xl border border-line bg-surface/80 p-4" aria-label="Current engineering focus">
+            <div className="flex items-center justify-between">
+              <p className="font-mono text-[11px] tracking-[0.18em] text-muted uppercase">Current focus</p>
+              <span className="caret inline-block h-3 w-1.5 bg-accent" />
+            </div>
+            <ul className="mt-3 grid grid-cols-2 gap-3">
+              {rows.map((row) => (
+                <li key={row.k}>
+                  <p className="font-mono text-[11px] tracking-wider text-accent uppercase">{row.k}</p>
+                  <p className="mt-1 text-xs leading-5 text-foreground/90">{row.v}</p>
+                </li>
+              ))}
+            </ul>
           </div>
-          <p className="mt-4 font-mono text-xs text-foreground">
-            pwc / specialist
-            <span className="caret ml-1 inline-block h-3 w-1.5 translate-y-0.5 bg-accent align-middle" />
-          </p>
-          <ul className="mt-5 space-y-4 border-t border-line pt-5">
-            {rows.map((row) => (
-              <li key={row.k}>
-                <p className="font-mono text-[11px] tracking-wider text-accent uppercase">{row.k}</p>
-                <p className="mt-1 text-sm text-foreground/90">{row.v}</p>
-              </li>
-            ))}
-          </ul>
         </motion.aside>
       </div>
     </section>
